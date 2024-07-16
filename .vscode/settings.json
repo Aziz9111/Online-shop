@@ -1,0 +1,4 @@
+{
+  "prettier.singleAttributePerLine": false,
+  "html.autoClosingTags": false
+}
