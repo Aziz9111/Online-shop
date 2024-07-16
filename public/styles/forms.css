@@ -1,0 +1,25 @@
+form hr {
+  margin: var(--space-4);
+}
+
+form .btn {
+  margin: var(--space-2);
+}
+
+label {
+  display: block;
+  margin: var(--space-2) 0;
+}
+
+input,
+textarea {
+  font: inherit;
+  padding: var(--space-2);
+  border-radius: var(--border-radius-small);
+  border: 1px solid var(--color-gray-500);
+  width: 90%;
+}
+
+form p {
+  font-weight: bold;
+}

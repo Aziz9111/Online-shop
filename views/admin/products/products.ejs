@@ -1,0 +1,36 @@
+<%- include("../../shared/includes/head", {PageTitle: "Products"}) %>
+<link rel="stylesheet" href="/styles/forms.css">
+<link rel="stylesheet" href="/styles/auth.css">
+<link rel="stylesheet" href="/styles/product.css">
+<script src="/scripts/product-mang.js" defer></script>
+</head>
+<body>
+  <%- include("../../shared/includes/header") %>
+  <main>
+    <h1>Products (Admin)</h1>
+    <section>
+      <h2>Manage Products</h2>
+      <a href="/admin/products/new" class="btn">Add Product</a>
+    </section>
+    <section> 
+      <ul id="products-grid">
+        <% for (const product of products) { %>
+        <li>
+          <article class="product-item">
+            <img src="<%= product.imageUrl %>" alt="">
+            <div class="product-item-content">
+              <h2><%= product.title %></h2>
+              <div class="product-item-actions">
+                <a class="btn" href="/admin/products/<%= product.id %>">View & Edit</a>
+                <button class="btn" data-productid="<%= product.id %>" data-csrf="<%= locals.csrfToken %>">Delete</button>
+              </div>
+            </div>
+            
+          </article>
+        </li>
+        <% } %>
+      </ul>
+    </section>
+   
+  </main>
+<%- include("../../shared/includes/footer") %>

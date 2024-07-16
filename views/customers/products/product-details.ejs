@@ -1,0 +1,22 @@
+<%- include("../../shared/includes/head", {PageTitle: "Product Details"}) %>
+<link rel="stylesheet" href="/styles/forms.css">
+<link rel="stylesheet" href="/styles/auth.css">
+<link rel="stylesheet" href="/styles/product.css">
+<script src="/scripts/product-mang.js" defer></script>
+<script src="/scripts/cart.js" defer></script>
+</head>
+<body>
+  <%- include("../../shared/includes/header") %>
+  <main id="product-details">
+   <header>
+    <img src="<%= product.imageUrl %>" alt="">
+    <div id="product-info">
+      <h1><%= product.title %></h1>
+      <p>Price: $<%= product.price %></p>
+      <button class="btn" data-productid="<%= product.id %>" data-csrf="<%= locals.csrfToken %>">Add to cart</button>
+    </div>
+   </header>
+   <h2>Product Description:</h2>
+   <p id="product-description"><%= product.description %></p>
+  </main>
+<%- include("../../shared/includes/footer") %>

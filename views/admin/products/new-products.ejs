@@ -1,0 +1,47 @@
+<%- include("../../shared/includes/head", {PageTitle: "Add Product"}) %>
+<link rel="stylesheet" href="/styles/forms.css">
+<link rel="stylesheet" href="/styles/auth.css">
+</head>
+<body>
+  <%- include("../../shared/includes/header") %>
+  <main>
+    <h1>Add Products</h1>
+    <form  action="/admin/products?_csrf=<%= locals.csrfToken %> " method="POST" enctype="multipart/form-data">
+      <div>
+        <label for="title">Prodcut Title</label>
+        <input type="text" name="title" id="title" required>
+      </div>
+
+      <div>
+        <label for="price">Price</label>
+        <input type="number" name="price" id="price" required> 
+      </div>
+
+      <div>
+        <label for="image">Product Image</label>
+        <input type="file" name="image" id="image" accept="image/png, image/jpg" required>
+      </div>
+      
+      <div>
+        <label for="summary">Product Summary</label>
+        <input type="text" name="summary" id="summary" min="0.01" step="1" required>
+      </div>
+
+      <div>
+        <label for="description">Description</label>
+        <textarea name="description" id="description" rows="5" required></textarea>
+      </div>
+
+    <div class="dinline">
+      <div>
+        <button class="btn-reset" type="reset">Reset</button>
+      </div>
+      <div>
+        <button class="btn">Submit</button>
+      </div>
+    </div>
+      
+
+    </form>
+  </main>
+<%- include("../../shared/includes/footer") %>
