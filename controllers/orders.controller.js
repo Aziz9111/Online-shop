@@ -37,14 +37,14 @@ async function addOrder(req, res, next) {
   req.session.cart = null;
 
   const session = await stripe.checkout.sessions.create({
-    line_items: cart.item.map((item) => {
+    line_items: cart.items.map((item) => {
       return {
         price_data: {
           currency: "usd",
           product_data: {
             name: item.product.title,
           },
-          unit_amount: +item.product.price,
+          unit_amount: +item.product.price * 100,
         },
         quantity: item.quantity,
       };
